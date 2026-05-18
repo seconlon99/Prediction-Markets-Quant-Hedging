@@ -1,0 +1,51 @@
+# ============================================================
+# .gitignore — KUL Thesis Case Studies
+# ============================================================
+
+# --- Python environments ---
+.venv/
+.venv-1/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# --- macOS metadata ---
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# --- Caches ---
+.cache.sqlite
+*.sqlite
+requests_cache.sqlite
+*.cache
+
+# --- IDE / Editor ---
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# --- Sensitive / private files (API keys, credentials) ---
+archive/private/
+api.txt
+12api.txt
+thesis1.txt
+
+# --- Claude Code metadata ---
+.claude/
+
+# --- Large archival data (not needed to run notebooks) ---
+# archive/ is committed for reference, but exclude private subfolder above
+archive/data/all_countries.csv

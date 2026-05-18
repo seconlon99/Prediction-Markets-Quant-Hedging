@@ -1,0 +1,53 @@
+{
+    "cells": [
+        {
+            "cell_type": "code",
+            "id": "#VSC-4fc98974",
+            "metadata": {
+                "language": "python"
+            },
+            "source": [
+                "import pandas as pd",
+                "import yfinance as yf",
+                "",
+                "# =========================",
+                "# Import ARTY ETF Prices",
+                "# =========================",
+                "start = pd.Timestamp(\"2024-04-01\").date()",
+                "end = pd.Timestamp(\"2026-01-01\").date()",
+                "",
+                "",
+                "def fetch_one(symbols, start, end):",
+                "    \"\"\"Try a list of symbols; return the first non-empty Close series (tz-naive).\"\"\"",
+                "    for s in symbols:",
+                "        try:",
+                "            df = yf.download(",
+                "                s,",
+                "                start=start,",
+                "                end=end,",
+                "                auto_adjust=True,",
+                "                progress=False,",
+                "                threads=False,",
+                "            )",
+                "            if isinstance(df, pd.DataFrame) and \"Close\" in df and not df[\"Close\"].dropna().empty:",
+                "                sr = df[\"Close\"].dropna().copy()",
+                "                sr.index = pd.to_datetime(sr.index).tz_localize(None)",
+                "                sr.name = s",
+                "                return sr",
+                "        except Exception:",
+                "            pass",
+                "    return pd.Series(dtype=float)",
+                "",
+                "",
+                "# ARTY ETF (with optional fallback symbols)",
+                "arty_etf = fetch_one([\"ARTY\"], start, end)",
+                "arty_etf.name = \"ARTY_ETF\"",
+                "",
+                "# Assemble prices",
+                "df_etf = pd.concat([arty_etf], axis=1).dropna(how=\"all\")",
+                "",
+                "print(\"ARTY ETF Prices:\")",
+                "display(df_etf.tail())"
+            ]
+        },
+...

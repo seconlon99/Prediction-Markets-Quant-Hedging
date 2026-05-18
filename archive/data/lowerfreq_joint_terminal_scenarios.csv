@@ -1,0 +1,5 @@
+branch,market1,market1_resolution,market2,market2_resolution,probability,terminal_abnormal_return,max_drawdown,horizon_days,joint_probability_source
+PM_nuclear_returns:0 | PM_ukraine_returns:0,PM_nuclear_returns,0,PM_ukraine_returns,0,0.9865405,-0.5269764162688049,-0.626481894830283,5,product_of_market_terminal_probs
+PM_nuclear_returns:0 | PM_ukraine_returns:1,PM_nuclear_returns,0,PM_ukraine_returns,1,0.008959500000000006,-0.7039369677497564,-0.5140372803738844,5,product_of_market_terminal_probs
+PM_nuclear_returns:1 | PM_ukraine_returns:0,PM_nuclear_returns,1,PM_ukraine_returns,0,0.0044595000000000025,-0.5267226049635452,-0.6261324648761033,5,product_of_market_terminal_probs
+PM_nuclear_returns:1 | PM_ukraine_returns:1,PM_nuclear_returns,1,PM_ukraine_returns,1,4.050000000000004e-05,-0.7036831564444967,-0.5136878504197047,5,product_of_market_terminal_probs
